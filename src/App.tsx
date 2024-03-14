@@ -21,6 +21,8 @@ import { resources } from "./config/resources";
 import Create from "./pages/compony/create";
 import Edit from "./pages/compony/edit";
 import List from "./pages/Task/List";
+import TasksCreatePage from "./pages/Task/create";
+import TaskEditPage from "./pages/Task/edit";
 
 
 
@@ -70,8 +72,13 @@ function App() {
                     <Route path="new" element = {<Create/>} /> 
                     <Route path="edit/:id" element = {<Edit/>} /> 
                     </Route>
-                    <Route path="/tasks">
-                      <Route  index element= {<List />}/>
+                    <Route path="/tasks" element = {
+                    <List>
+                      <Outlet />
+                    </List>
+                    }>
+                      <Route path="new" element = {<TasksCreatePage />} />
+                      <Route path="edit/:id" element = {<TaskEditPage />} />
                     </Route>
                   </Route>
                 </Routes>
