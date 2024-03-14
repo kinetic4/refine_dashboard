@@ -5,13 +5,16 @@ import { KanbanColumn, KanbanColumnSkeleton } from '@/component/tasks/kanban/col
 import KanbanItem from '@/component/tasks/kanban/item'
 import { UPDATE_TASK_STAGE_MUTATION } from '@/graphql/mutations'
 import { TASKS_QUERY, TASK_STAGES_QUERY } from '@/graphql/queries'
-import { Task, TaskStage, TaskUpdateInput } from '@/graphql/schema.types'
-import { TasksQuery } from '@/graphql/types'
+import {  TaskUpdateInput } from '@/graphql/schema.types'
+import { TaskStagesQuery, TasksQuery } from '@/graphql/types'
 import { DragEndEvent } from '@dnd-kit/core'
 import { HttpError, useList, useNavigation, useUpdate } from '@refinedev/core'
 import { GetFieldsFromList } from '@refinedev/nestjs-query'
 
-import React, { Children } from 'react'
+import React from 'react'
+
+type Task = GetFieldsFromList<TasksQuery>
+type TaskStage = GetFieldsFromList<TaskStagesQuery> & { tasks: Task[] }
 
 const List = ({ children } : React.PropsWithChildren) => {
 
