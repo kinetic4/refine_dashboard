@@ -29,7 +29,7 @@ import List from "./pages/Task/List";
 function App() {
   return (
     <BrowserRouter>
-      <GitHubBanner />
+      
       <RefineKbarProvider>
           <AntdApp>
             <DevtoolsProvider>
